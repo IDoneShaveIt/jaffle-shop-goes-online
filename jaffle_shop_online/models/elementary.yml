@@ -1,0 +1,22 @@
+version: 2
+models:
+  - name: order_items
+    columns:
+      - name: order_id
+        data_tests:
+          - dbt_utils.not_null_proportion:
+              at_most: 1.0 # Optional
+              group_by_columns: # Optional, Columns to group by before executing the test
+                - group_id
+              config:
+                tags:
+                  - sales
+      - name: customer_id
+        data_tests:
+          - dbt_utils.not_null_proportion:
+              at_most: 1.0 # Optional
+              group_by_columns: # Optional, Columns to group by before executing the test
+                - group_id
+              config:
+                tags:
+                  - sales

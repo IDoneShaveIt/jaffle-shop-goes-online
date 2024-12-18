@@ -1,0 +1,32 @@
+version: 2
+models:
+  - name: order_items
+    columns:
+      - name: customer_id
+        data_tests:
+          - dbt_utils.not_null_proportion:
+              at_least: 0.5
+              at_most: 1.0 # Optional
+              group_by_columns: # Optional, Columns to group by before executing the test
+                - group_id
+              config:
+                tags:
+                  - Marketing
+              meta:
+                owner:
+                  - daniel+999@elementary-data.com
+                description: some test
+      - name: order_id
+        data_tests:
+          - dbt_utils.not_null_proportion:
+              at_least: 0.5
+              at_most: 1.0 # Optional
+              group_by_columns: # Optional, Columns to group by before executing the test
+                - group_id
+              config:
+                tags:
+                  - Marketing
+              meta:
+                owner:
+                  - daniel+999@elementary-data.com
+                description: some test

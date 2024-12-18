@@ -5,11 +5,142 @@ sources:
     schema: jaffle_shop
     tables:
       - name: stg_google_ads
+        columns:
+          - name: ad_id
+            data_tests:
+              - dbt_utils.not_null_proportion:
+                  at_least: 0.5
+                  at_most: 1.0 # Optional
+                  group_by_columns: # Optional, Columns to group by before executing the test
+                    - group_id
+                  config:
+                    tags:
+                      - Marketing
+                  meta:
+                    owner:
+                      - daniel+999@elementary-data.com
+                    description: some test
       - name: stg_facebook_ads
+        columns:
+          - name: ad_id
+            data_tests:
+              - dbt_utils.not_null_proportion:
+                  at_least: 0.5
+                  at_most: 1.0 # Optional
+                  group_by_columns: # Optional, Columns to group by before executing the test
+                    - group_id
+                  config:
+                    tags:
+                      - Marketing
+                  meta:
+                    owner:
+                      - daniel+999@elementary-data.com
+                    description: some test
       - name: stg_instagram_ads
 
+        columns:
+          - name: ad_id
+            data_tests:
+              - dbt_utils.not_null_proportion:
+                  at_least: 0.5
+                  at_most: 1.0 # Optional
+                  group_by_columns: # Optional, Columns to group by before executing the test
+                    - group_id
+                  config:
+                    tags:
+                      - Marketing
+                  meta:
+                    owner:
+                      - daniel+999@elementary-data.com
+                    description: some test
   - name: sessions
     schema: jaffle_shop
     tables:
       - name: stg_website_sessions
+        columns:
+          - name: customer_id
+            data_tests:
+              - dbt_utils.not_null_proportion:
+                  at_least: 0.5
+                  at_most: 1.0 # Optional
+                  group_by_columns: # Optional, Columns to group by before executing the test
+                    - group_id
+                  config:
+                    tags:
+                      - Marketing
+                  meta:
+                    owner:
+                      - daniel+999@elementary-data.com
+                    description: some test
+          - name: ad_id
+            data_tests:
+              - dbt_utils.not_null_proportion:
+                  at_least: 0.5
+                  at_most: 1.0 # Optional
+                  group_by_columns: # Optional, Columns to group by before executing the test
+                    - group_id
+                  config:
+                    tags:
+                      - Marketing
+                  meta:
+                    owner:
+                      - daniel+999@elementary-data.com
+                    description: some test
+          - name: session_id
+            data_tests:
+              - dbt_utils.not_null_proportion:
+                  at_least: 0.5
+                  at_most: 1.0 # Optional
+                  group_by_columns: # Optional, Columns to group by before executing the test
+                    - group_id
+                  config:
+                    tags:
+                      - Marketing
+                  meta:
+                    owner:
+                      - daniel+999@elementary-data.com
+                    description: some test
       - name: stg_app_sessions
+        columns:
+          - name: session_id
+            data_tests:
+              - dbt_utils.not_null_proportion:
+                  at_least: 0.5
+                  at_most: 1.0 # Optional
+                  group_by_columns: # Optional, Columns to group by before executing the test
+                    - group_id
+                  config:
+                    tags:
+                      - Marketing
+                  meta:
+                    owner:
+                      - daniel+999@elementary-data.com
+                    description: some test
+          - name: customer_id
+            data_tests:
+              - dbt_utils.not_null_proportion:
+                  at_least: 0.5
+                  at_most: 1.0 # Optional
+                  group_by_columns: # Optional, Columns to group by before executing the test
+                    - group_id
+                  config:
+                    tags:
+                      - Marketing
+                  meta:
+                    owner:
+                      - daniel+999@elementary-data.com
+                    description: some test
+          - name: ad_id
+            data_tests:
+              - dbt_utils.not_null_proportion:
+                  at_least: 0.5
+                  at_most: 1.0 # Optional
+                  group_by_columns: # Optional, Columns to group by before executing the test
+                    - group_id
+                  config:
+                    tags:
+                      - Marketing
+                  meta:
+                    owner:
+                      - daniel+999@elementary-data.com
+                    description: some test

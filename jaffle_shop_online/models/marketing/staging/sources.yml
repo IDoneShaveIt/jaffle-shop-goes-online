@@ -5,11 +5,115 @@ sources:
     schema: jaffle_shop
     tables:
       - name: stg_google_ads
+        columns:
+          - name: ad_id
+            data_tests:
+              - not_null:
+                  config:
+                    tags:
+                      - sales
+                    severity: error
+                  meta:
+                    owner:
+                      - joost@elementary-data.com
+                    description: The column should not contain null values
       - name: stg_facebook_ads
+        columns:
+          - name: ad_id
+            data_tests:
+              - not_null:
+                  config:
+                    tags:
+                      - sales
+                    severity: error
+                  meta:
+                    owner:
+                      - joost@elementary-data.com
+                    description: The column should not contain null values
       - name: stg_instagram_ads
 
+        columns:
+          - name: ad_id
+            data_tests:
+              - not_null:
+                  config:
+                    tags:
+                      - sales
+                    severity: error
+                  meta:
+                    owner:
+                      - joost@elementary-data.com
+                    description: The column should not contain null values
   - name: sessions
     schema: jaffle_shop
     tables:
       - name: stg_website_sessions
+        columns:
+          - name: customer_id
+            data_tests:
+              - not_null:
+                  config:
+                    tags:
+                      - sales
+                    severity: error
+                  meta:
+                    owner:
+                      - joost@elementary-data.com
+                    description: The column should not contain null values
+          - name: ad_id
+            data_tests:
+              - not_null:
+                  config:
+                    tags:
+                      - sales
+                    severity: error
+                  meta:
+                    owner:
+                      - joost@elementary-data.com
+                    description: The column should not contain null values
+          - name: session_id
+            data_tests:
+              - not_null:
+                  config:
+                    tags:
+                      - sales
+                    severity: error
+                  meta:
+                    owner:
+                      - joost@elementary-data.com
+                    description: The column should not contain null values
       - name: stg_app_sessions
+        columns:
+          - name: ad_id
+            data_tests:
+              - not_null:
+                  config:
+                    tags:
+                      - sales
+                    severity: error
+                  meta:
+                    owner:
+                      - joost@elementary-data.com
+                    description: The column should not contain null values
+          - name: customer_id
+            data_tests:
+              - not_null:
+                  config:
+                    tags:
+                      - sales
+                    severity: error
+                  meta:
+                    owner:
+                      - joost@elementary-data.com
+                    description: The column should not contain null values
+          - name: session_id
+            data_tests:
+              - not_null:
+                  config:
+                    tags:
+                      - sales
+                    severity: error
+                  meta:
+                    owner:
+                      - joost@elementary-data.com
+                    description: The column should not contain null values

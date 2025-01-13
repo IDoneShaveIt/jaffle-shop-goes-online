@@ -2,7 +2,8 @@ version: 2
 
 models:
   - name: customers
-    description: This table has basic information about a customer, as well as some derived facts based on a customer's orders
+    description: This table has basic information about a customer, as well as some
+      derived facts based on a customer's orders
     meta:
       owner: "Maayan"
     config:
@@ -34,6 +35,18 @@ models:
       - name: number_of_orders
         description: Count of the number of orders a customer has placed
 
+        data_tests:
+          - dbt_utils.accepted_range:
+              max_value: 1000 # Optional
+              inclusive: true # Optional
+              config:
+                tags:
+                  - marketing
+                severity: warn
+              meta:
+                owner:
+                  - joost@elementary-data.com
+                description: We want order to be minimal 0 and max 1000
       - name: customer_lifetime_value
         description: Total value (AUD) of a customer's orders
 
@@ -49,7 +62,8 @@ models:
         description: Date (UTC) of a customer's signup to the online shop.
 
   - name: orders
-    description: This table has basic information about orders, as well as some derived facts based on payments
+    description: This table has basic information about orders, as well as some derived
+      facts based on payments
     meta:
       owner: "Or"
     config:
@@ -60,7 +74,7 @@ models:
     tests:
       - elementary.freshness_anomalies
       - elementary.dimension_anomalies:
-          dimensions: 
+          dimensions:
             - customer_id
           config:
             tags: ["stability"]
@@ -87,8 +101,7 @@ models:
               config:
                 tags: ["customer_success"]
                 severity: warn
-              values:
-                ["placed", "shipped", "completed", "return_pending", "returned"]
+              values: ["placed", "shipped", "completed", "return_pending", "returned"]
           - dbt_expectations.expect_column_values_to_be_in_set:
               value_set: ["placed", "shipped", "completed", "return_pending", "returned"]
               quote_values: true
